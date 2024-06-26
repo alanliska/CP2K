@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:orientation="vertical"
+    android:background="@android:color/white">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+
+        <TextView
+            android:id="@+id/RunX11Label"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Save the following X11BASIC file as /data/data/cz.jh.cp2k/files/... .bas (do not write the extension):"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+        <EditText
+            android:id="@+id/X11Name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fadeScrollbars="false"
+            android:fastScrollAlwaysVisible="true"
+            android:fastScrollEnabled="true"
+            android:scrollbarAlwaysDrawVerticalTrack="true"
+            android:scrollbarFadeDuration="50000"
+            android:scrollbarSize="5dp"
+            android:typeface="monospace" />
+
+        <TextView
+            android:id="@+id/X11Content"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Content of the X11BASIC file:"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+        <EditText
+            android:id="@+id/RunX11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fadeScrollbars="false"
+            android:fastScrollAlwaysVisible="true"
+            android:fastScrollEnabled="true"
+            android:scrollbarAlwaysDrawVerticalTrack="true"
+            android:scrollbarFadeDuration="50000"
+            android:scrollbarSize="5dp"
+            android:typeface="monospace" />
+
+        <Button
+            android:id="@+id/RunX11Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#E91E63"
+            android:text="RUN X11BASIC" />
+        <Button
+            android:id="@+id/manual_x11basic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#00AABB"
+            android:text="OFFICIAL X11-BASIC MANUAL" />
+
+        <TextView
+            android:id="@+id/RunX11OutputLabel"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Response:"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10px" >
+
+            <EditText
+                android:id="@+id/RunX11Output"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars = "horizontal"
+                android:textColor="@android:color/black"
+                android:textIsSelectable="true"
+                android:textSize="12sp"
+                android:typeface="monospace"></EditText>
+        </HorizontalScrollView>
+
+
+        <TextView
+            android:id="@+id/CatOutputLabel"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Cat following file /data/data/cz.jh.cp2k/files/:"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+        <EditText
+            android:id="@+id/CatOutput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:typeface="monospace"
+            android:fadeScrollbars="false"
+            android:scrollbarAlwaysDrawVerticalTrack="true"
+            android:scrollbarFadeDuration="50000"
+            android:fastScrollAlwaysVisible="true"
+            android:scrollbarSize="5dp"
+            android:fastScrollEnabled="true"/>
+        <Button
+            android:id="@+id/CatOutputButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="CAT" />
+        <TextView
+            android:id="@+id/CatResponseLabel"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Response:"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10px" >
+
+            <EditText
+                android:id="@+id/CatResponse"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars = "horizontal"
+                android:textColor="@android:color/black"
+                android:textIsSelectable="true"
+                android:textSize="12sp"
+                android:typeface="monospace"></EditText>
+        </HorizontalScrollView>
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/CatResponse"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:fadeScrollbars="false"-->
+        <!--            android:fastScrollAlwaysVisible="true"-->
+        <!--            android:fastScrollEnabled="true"-->
+        <!--            android:scrollbarAlwaysDrawVerticalTrack="true"-->
+        <!--            android:scrollbarFadeDuration="50000"-->
+        <!--            android:scrollbarSize="5dp"-->
+        <!--            android:textAppearance="@style/TextAppearance.AppCompat.Body1"-->
+        <!--            android:typeface="monospace" />-->
+
+        <TextView
+            android:id="@+id/DeleteLabel"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Delete following file /data/data/cz.jh.cp2k/files/:"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+        <EditText
+            android:id="@+id/Delete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:typeface="monospace"
+            android:fadeScrollbars="false"
+            android:scrollbarAlwaysDrawVerticalTrack="true"
+            android:scrollbarFadeDuration="50000"
+            android:fastScrollAlwaysVisible="true"
+            android:scrollbarSize="5dp"
+            android:fastScrollEnabled="true"/>
+        <Button
+            android:id="@+id/DeleteButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="DELETE" />
+
+        <TextView
+            android:id="@+id/Shell0Label"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Execute custom single command (without shell, without modification):"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+        <EditText
+            android:id="@+id/Shell0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:typeface="monospace"
+            android:fadeScrollbars="false"
+            android:scrollbarAlwaysDrawVerticalTrack="true"
+            android:scrollbarFadeDuration="50000"
+            android:fastScrollAlwaysVisible="true"
+            android:scrollbarSize="5dp"
+            android:fastScrollEnabled="true"/>
+
+        <Button
+            android:id="@+id/Shell0Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#E91E63"
+            android:text="EXECUTE" />
+
+        <TextView
+            android:id="@+id/ShellLabel"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Execute custom command in frame of Android shell (the binaries are called by their names without lib- and -.so, they are renamed automatically when at least one space before and after the name is present - e.g. command ' cp2k ' is translated as full path of libcp2k.so in the Android filesystem; available executables are cp2k, dbm_miniapp, dumpdcd, graph, grid_miniapp, obabel, xbbc, xbvm, xyz2dcd):"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+        <EditText
+            android:id="@+id/Shell"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:typeface="monospace"
+            android:fadeScrollbars="false"
+            android:scrollbarAlwaysDrawVerticalTrack="true"
+            android:scrollbarFadeDuration="50000"
+            android:fastScrollAlwaysVisible="true"
+            android:scrollbarSize="5dp"
+            android:fastScrollEnabled="true"/>
+
+        <Button
+            android:id="@+id/ShellButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#E91E63"
+            android:text="EXECUTE" />
+
+        <TextView
+            android:id="@+id/NativeLibLabel"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Path to the available built-in executables (lib[NAME].so for convention):"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+        <EditText
+            android:id="@+id/NativeLibPath"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fadeScrollbars="false"
+            android:fastScrollAlwaysVisible="true"
+            android:fastScrollEnabled="true"
+            android:scrollbarAlwaysDrawVerticalTrack="true"
+            android:scrollbarFadeDuration="50000"
+            android:scrollbarSize="5dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:typeface="monospace" />
+
+        <TextView
+            android:id="@+id/ExecuteOutputLabel"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Response:"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="10px" >
+
+            <EditText
+                android:id="@+id/ExecuteOutput"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars = "horizontal"
+                android:textColor="@android:color/black"
+                android:textIsSelectable="true"
+                android:textSize="12sp"
+                android:typeface="monospace"></EditText>
+        </HorizontalScrollView>
+
+        <!---
+                <TextView
+                    android:id="@+id/BinaryLabel"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Execute custom command with ProcessBuilder:"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+                <EditText
+                    android:id="@+id/Binary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:typeface="monospace"
+                    android:fadeScrollbars="false"
+                    android:scrollbarAlwaysDrawVerticalTrack="true"
+                    android:scrollbarFadeDuration="50000"
+                    android:fastScrollAlwaysVisible="true"
+                    android:scrollbarSize="5dp"
+                    android:fastScrollEnabled="true"/>
+                <TextView
+                    android:id="@+id/ArgumentsLabel"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="...with arguments:"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+                <EditText
+                    android:id="@+id/Arguments"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:typeface="monospace"
+                    android:fadeScrollbars="false"
+                    android:scrollbarAlwaysDrawVerticalTrack="true"
+                    android:scrollbarFadeDuration="50000"
+                    android:fastScrollAlwaysVisible="true"
+                    android:scrollbarSize="5dp"
+                    android:fastScrollEnabled="true"/>
+
+                <Button
+                    android:id="@+id/BinaryButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#E91E63"
+                    android:text="EXECUTE" />
+
+                <TextView
+                    android:id="@+id/BinaryOutputLabel"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Response:"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+                <TextView
+                    android:id="@+id/BinaryOutput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fadeScrollbars="false"
+                    android:fastScrollAlwaysVisible="true"
+                    android:fastScrollEnabled="true"
+                    android:scrollbarAlwaysDrawVerticalTrack="true"
+                    android:scrollbarFadeDuration="50000"
+                    android:scrollbarSize="5dp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    android:typeface="monospace" />
+
+        -->
+
+
+        <Button
+            android:id="@+id/Quit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="BACK" />
+    </LinearLayout>
+</ScrollView>

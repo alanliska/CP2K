@@ -1,4 +1,4 @@
-package cz.jh.amsol;
+package cz.jh.ergo;
 
 import org.junit.Test;
 

@@ -1,0 +1,1 @@
+export HOME=/data/data/cz.jh.cp2k/files ; export CP2K_DATA_DIR=/data/data/cz.jh.cp2k/files/database/cp2k ; export OMP_NUM_THREADS=1 ; cd $HOME ; chmod -R 755 * ; rm -rf cp2k_calc ; mkdir cp2k_calc ; cp Input-cp2k.xyz ./cp2k_calc ; cp Input-cp2k.txt ./cp2k_calc ; cd cp2k_calc ; sed -i 1,2d Input-cp2k.xyz ; cp2k Input-cp2k.txt ; cd 
