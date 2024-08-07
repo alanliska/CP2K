@@ -152,7 +152,8 @@ public class MainActivity extends AppCompatActivity {
         } else {
             Content.setTextSize(12);
         }
-        Content.setMovementMethod(new ScrollingMovementMethod());
+        // disable - otherwise the text could not be selected
+//        Content.setMovementMethod(new ScrollingMovementMethod());
         Content.addTextChangedListener(new TextWatcher() {
             int startChanged,beforeChanged,countChanged;
             @Override
@@ -185,7 +186,8 @@ public class MainActivity extends AppCompatActivity {
         } else {
             Command.setTextSize(16);
         }
-        Command.setMovementMethod(new ScrollingMovementMethod());
+        // disable - otherwise the text could not be selected
+//        Command.setMovementMethod(new ScrollingMovementMethod());
         Command.addTextChangedListener(new TextWatcher() {
             int startChanged,beforeChanged,countChanged;
             @Override
@@ -223,7 +225,8 @@ public class MainActivity extends AppCompatActivity {
         } else {
             InFile.setTextSize(16);
         }
-        InFile.setMovementMethod(new ScrollingMovementMethod());
+        // disable - otherwise the text could not be selected
+//        InFile.setMovementMethod(new ScrollingMovementMethod());
         InFile.addTextChangedListener(new TextWatcher() {
             int startChanged,beforeChanged,countChanged;
             @Override
@@ -261,7 +264,8 @@ public class MainActivity extends AppCompatActivity {
         } else {
             InputFile.setTextSize(16);
         }
-        InputFile.setMovementMethod(new ScrollingMovementMethod());
+        // disable - otherwise the text could not be selected
+//        InputFile.setMovementMethod(new ScrollingMovementMethod());
         InputFile.addTextChangedListener(new TextWatcher() {
             int startChanged,beforeChanged,countChanged;
             @Override
@@ -316,7 +320,8 @@ public class MainActivity extends AppCompatActivity {
         } else {
         outputView2.setTextSize(12);
         }
-        outputView2.setMovementMethod(new ScrollingMovementMethod());
+        // disable - otherwise the text could not be selected
+//        outputView2.setMovementMethod(new ScrollingMovementMethod());
 //        outputView2.addTextChangedListener(new TextWatcher() {
 //            int startChanged,beforeChanged,countChanged;
 //            @Override
