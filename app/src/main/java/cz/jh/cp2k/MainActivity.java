@@ -481,15 +481,17 @@ public class MainActivity extends AppCompatActivity {
                     copyFromAssetsToInternalStorage("InputTextSize.txt");
                     copyFromAssetsToInternalStorage("OutputTextSize.txt");
 //                    copyFromAssetsToInternalStorage("TextSize.txt");
-                    String zipFilePath = getFilesDir()+"/assets.zip";
-                    String destDir = getFilesDir()+"/" ;
+//                    String zipFilePath = getFilesDir()+"/assets.zip";
+                    String zipFilePath = getFilesDir()+File.separator+"assets.zip";
+//                    String destDir = getFilesDir()+"/" ;
 //                    unzipfile( zipFilePath, destDir ) ;
                     try {
-                        unzip(new File(zipFilePath),destDir);
+//                        unzip(new File(zipFilePath),destDir);
+                        unzip(new File(zipFilePath));
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                    exec("rm "+getFilesDir()+"/assets.zip");
+                    exec("rm "+getFilesDir()+File.separator+"assets.zip");
 //                    unZipFile(getFilesDir()+"/assets.zip");
 
 //                    unzipAssets(MainActivity.this);
@@ -2952,33 +2954,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void unZipFile(String filename){
-        try {
-            ZipInputStream zipInputStream = new ZipInputStream(openFileInput(filename));
-            ZipEntry zipEntry;
-
-            while((zipEntry = zipInputStream.getNextEntry()) != null){
-                FileOutputStream zipOutputStream = openFileOutput(zipEntry.getName(), MODE_PRIVATE);
-
-                int length;
-                byte[] buffer = new byte[65536];
-
-                while((length = zipInputStream.read(buffer)) > 0){
-                    zipOutputStream.write(buffer, 0, length);
-                }
-
-                zipOutputStream.close();
-                zipInputStream.closeEntry();
-            }
-            zipInputStream.close();
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
     private void copyFile2(InputStream in, OutputStream out) throws IOException {
         byte[] buffer = new byte[65536];
         int read;
@@ -2987,72 +2962,76 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private static void unzipfile( String zipFilePath, String destDir ) {
-        File dir = new File( destDir ) ;
-        // creating an output directory if it doesn't exist already
-        if( !dir.exists( ) ) dir.mkdirs( ) ;
-        FileInputStream FiS ;
-        // buffer to read and write data in the file
-        byte[ ] buffer = new byte[ 65536 ] ;
-        try {
-            FiS = new FileInputStream( zipFilePath ) ;
-            ZipInputStream ZiS = new ZipInputStream( FiS ) ;
-            ZipEntry ZE = ZiS.getNextEntry( ) ;
-            while( ZE != null ) {
-                String fileName = ZE.getName( ) ;
-                File newFile = new File( destDir + File.separator + fileName ) ;
-                System.out.println( " Unzipping to " + newFile.getAbsolutePath( ) ) ;
-                // create directories for sub directories in zip
-                new File( newFile.getParent( ) ).mkdirs( ) ;
-                FileOutputStream FoS = new FileOutputStream( newFile ) ;
-                int len ;
-                while ( ( len = ZiS.read( buffer ) )  > 0 ) {
-                    FoS.write( buffer, 0, len ) ;
-                }
-                FoS.close( ) ;
-                // close this ZipEntry
-                ZiS.closeEntry( ) ;
-                ZE = ZiS.getNextEntry( ) ;
-            }
-            // close last ZipEntry
-            ZiS.closeEntry( ) ;
-            ZiS.close( ) ;
-            FiS.close( ) ;
-        } catch ( IOException e ) {
-            e.printStackTrace( ) ;
-        }
-    }
+//    public static void unzip(File source, String out) throws IOException {
+//        try (ZipInputStream zis = new ZipInputStream(new FileInputStream(source))) {
+//
+//            ZipEntry entry = zis.getNextEntry();
+//
+//            while (entry != null) {
+//
+//                File file = new File(out, entry.getName());
+//
+//                if (entry.isDirectory()) {
+//                    file.mkdirs();
+//                } else {
+//                    File parent = file.getParentFile();
+//
+//                    if (!parent.exists()) {
+//                        parent.mkdirs();
+//                    }
+//
+//                    try (BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(file))) {
+//
+//                        int bufferSize = Math.toIntExact(entry.getSize());
+//                        byte[] buffer = new byte[bufferSize > 0 ? bufferSize : 1];
+//                        int location;
+//
+//                        while ((location = zis.read(buffer)) != -1) {
+//                            bos.write(buffer, 0, location);
+//                        }
+//                    }
+//                }
+//                entry = zis.getNextEntry();
+//            }
+//        }
+//    }
 
-    public static void unzip(File source, String out) throws IOException {
+    public void unzip(File source) throws IOException {
         try (ZipInputStream zis = new ZipInputStream(new FileInputStream(source))) {
 
             ZipEntry entry = zis.getNextEntry();
+            File outPath = new File(getFilesDir()+"");
 
             while (entry != null) {
+                File file = new File(outPath, entry.getName());
+                String canonicalPath = file.getCanonicalPath();
+                if (canonicalPath.startsWith(outPath.getCanonicalPath() + File.separator)) {
+//                    File verifiedFile = new File(canonicalPath,entry.getName());
+//                    continue;
+                    if (entry.isDirectory()) {
+                        file.mkdirs();
+                    } else {
+                        File parent = file.getParentFile();
 
-                File file = new File(out, entry.getName());
+                        if (!parent.exists()) {
+                            parent.mkdirs();
+                        }
 
-                if (entry.isDirectory()) {
-                    file.mkdirs();
-                } else {
-                    File parent = file.getParentFile();
+                        try (BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(file))) {
 
-                    if (!parent.exists()) {
-                        parent.mkdirs();
-                    }
+                            int bufferSize = Math.toIntExact(entry.getSize());
+                            byte[] buffer = new byte[bufferSize > 0 ? bufferSize : 1];
+                            int location;
 
-                    try (BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(file))) {
-
-                        int bufferSize = Math.toIntExact(entry.getSize());
-                        byte[] buffer = new byte[bufferSize > 0 ? bufferSize : 1];
-                        int location;
-
-                        while ((location = zis.read(buffer)) != -1) {
-                            bos.write(buffer, 0, location);
+                            while ((location = zis.read(buffer)) != -1) {
+                                bos.write(buffer, 0, location);
+                            }
                         }
                     }
+                    entry = zis.getNextEntry();
+                } else {
+                    throw new IllegalStateException("Unreachable location");
                 }
-                entry = zis.getNextEntry();
             }
         }
     }
