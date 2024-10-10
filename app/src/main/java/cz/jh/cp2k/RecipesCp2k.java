@@ -31,6 +31,7 @@ public class RecipesCp2k extends MainActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         setContentView(R.layout.recipescp2k);
 
         PdfView pdfView = findViewById(R.id.pdfView);

@@ -111,6 +111,7 @@ public class Canvas3d_main extends MainActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         setContentView(R.layout.canvas3d_main);
         molCanvasView = (Canvas3d_CanvasView) findViewById(R.id.molCanvasView);
         perTable = (Button) findViewById(R.id.perTable);

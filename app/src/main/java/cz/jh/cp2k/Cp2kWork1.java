@@ -29,6 +29,7 @@ public class Cp2kWork1 extends MainActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+        getSupportActionBar().hide();
         setContentView(R.layout.generallayout);
         final String rootPath = getFilesDir()+"/work";
         final File dir = new File(rootPath);
