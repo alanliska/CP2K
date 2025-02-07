@@ -35,6 +35,7 @@ public class Licenses extends MainActivity {
     Button license10;
     Button license11;
     Button licenseGV;
+    Button licenseMolCanv;
     Button opsin;
     Button android_shell;
     Button license_cp2k;
@@ -42,6 +43,7 @@ public class Licenses extends MainActivity {
     Button license_libint;
     Button license_libxc;
     Button quit;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +67,8 @@ public class Licenses extends MainActivity {
         license11.setOnClickListener(license11Click);
         licenseGV = (Button) findViewById(R.id.licenseGV);
         licenseGV.setOnClickListener(licenseGVClick);
+        licenseMolCanv = (Button) findViewById(R.id.licenseMolCanv);
+        licenseMolCanv.setOnClickListener(licenseMolCanvClick);
         opsin = (Button) findViewById(R.id.opsin);
         opsin.setOnClickListener(opsinClick);
         android_shell = (Button) findViewById(R.id.android_shell);
@@ -87,6 +91,26 @@ public class Licenses extends MainActivity {
             }
         });
 
+    }
+
+    private View.OnClickListener licenseMolCanvClick; {
+        licenseMolCanvClick = new View.OnClickListener() {
+            public void onClick(View v) {
+                // TODO Auto-generated method stub //
+                alertM();
+            }
+        };
+    }
+
+    public void alertM() {
+        new AlertDialog.Builder(Licenses.this)
+                .setTitle("LICENSE-MOLCANVAS")
+                .setMessage(exec("cat "+getFilesDir()+"/licenses/LICENSE-MOLCANVAS.txt"))
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                }).show();
     }
 
     private View.OnClickListener license_cp2kClick; {

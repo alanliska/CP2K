@@ -35,6 +35,41 @@ public class Spannables extends MainActivity {
             }
         }
 
+        String[] words_comment = {"#", "!"};
+        Integer argb_comment = Color.parseColor("#058a47");
+        for (String word : words_comment) {
+            int substringStart = 0;
+            int start;
+            while ((start = text.indexOf(word, substringStart)) >= 0) {
+                int endOfLine = text.indexOf("\n",start);
+                // endOfLine = -1 in the last line, since there is no more line break until the ond of the file
+                if (endOfLine != -1) {
+                    spannable.setSpan(
+                            new ForegroundColorSpan(argb_comment), start, endOfLine,
+                            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                    );
+//                    spannable.setSpan(
+//                            new BackgroundColorSpan(argb_back),start,endOfLine,
+//                            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+//                    );
+                    substringStart = endOfLine;
+                } else {
+                    spannable.setSpan(
+                            // in the last line, only the "#" character would be colorized by green, the following characters would be either black or colorized by previous
+//                            new ForegroundColorSpan(argb_comment), start, start+word.length(),
+                            // text.length() is the position of the end of whole text, better (it works as should)
+                            new ForegroundColorSpan(argb_comment), start, text.length(),
+                            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                    );
+//                    spannable.setSpan(
+//                            new BackgroundColorSpan(argb_back),start,text.length(),
+//                            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+//                    );
+                    substringStart = start+word.length();
+                }
+            }
+        }
+
         return spannable;
     }
 
@@ -189,6 +224,49 @@ public class Spannables extends MainActivity {
 //                    );
                     substringStart = start+word.length();
                 }
+            }
+        }
+
+        return spannable;
+    }
+
+    public static Spannable colorized_elements(final String text) {
+        SpannableString spannable = new SpannableString(text);
+        Integer argb_back = Color.WHITE;
+
+        String[] words_blue = {"H ", "Li ", "Na ", "K ", "Rb ", "Cs ", "Fr ", "Be ", "Mg ", "Ca ", "Sr ", "Ba ", "Ra ", "Sc ", "Y ", "La ", "Ac ", "Ti ", "Zr ", "Hf ", "Rf ", "V ", "Nb ", "Ta ", "Db ", "Cr ", "Mo ", "W ", "Sg ", "Mn ", "Tc ", "Re ", "Bh ", "Fe ", "Ru ", "Os ", "Hs ", "Co ", "Rh ", "Ir ", "Mt ", "Ni ", "Pd ", "Pt ", "Ds ", "Cu ", "Ag ", "Au ", "Rg ", "Zn ", "Cd ", "Hg ", "Cn ", "B ", "Al ", "Ga ", "In ", "Tl ", "Nh ", "C ", "Si ", "Ge ", "Sn ", "Pb ", "Fl ", "N ", "P ", "As ", "Sb ", "Bi ", "Mc ", "O ", "S ", "Se ", "Te ", "Po ", "Lv ", "F ", "Cl ", "Br ", "I ", "At ", "Ts ", "He ", "Ne ", "Ar ", "Kr ", "Xe ", "Rn ", "Og ", "Ce ", "Pr ", "Nd ", "Pm ", "Sm ", "Eu ", "Gd ", "Tb ", "Dy ", "Ho ", "Er ", "Tm ", "Yb ", "Lu ", "Th ", "Pa ", "U ", "Np ", "Pu ", "Am ", "Cm ", "Bk ", "Cf ", "Es ", "Fm ", "Md ", "No ", "Lr "};
+        Integer argb_blue = Color.BLUE;
+        for (String word : words_blue) {
+            int substringStart=0;
+            int start;
+            while((start=text.indexOf(word,substringStart))>=0){
+                spannable.setSpan(
+                        new ForegroundColorSpan(argb_blue),start,start+word.length(),
+                        Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                );
+//                spannable.setSpan(
+//                        new BackgroundColorSpan(argb_back),start,start+word.length(),
+//                        Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+//                );
+                substringStart = start+word.length();
+            }
+        }
+
+        String[] words_red = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ".", "+", "-"};
+        Integer argb_red = Color.RED;
+        for (String word : words_red) {
+            int substringStart=0;
+            int start;
+            while((start=text.indexOf(word,substringStart))>=0){
+                spannable.setSpan(
+                        new ForegroundColorSpan(argb_red),start,start+word.length(),
+                        Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                );
+//                spannable.setSpan(
+//                        new BackgroundColorSpan(argb_back),start,start+word.length(),
+//                        Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+//                );
+                substringStart = start+word.length();
             }
         }
 

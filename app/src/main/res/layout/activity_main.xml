@@ -176,7 +176,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="#BF5695"
-            android:text="VIEW/EDIT INPUT-CP2K.XYZ IN CANVAS3D (SLOW)" />
+            android:text="VIEW/EDIT INPUT-CP2K.XYZ" />
 
         <Button
             android:id="@+id/RunProgram"
@@ -227,7 +227,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="#BF5695"
-            android:text="VIEW/EDIT OUTPUT-CP2K.XYZ IN CANVAS3D (SLOW)" />
+            android:text="VIEW/EDIT OUTPUT-CP2K.XYZ" />
 
         <Button
             android:id="@+id/start_shelltools"

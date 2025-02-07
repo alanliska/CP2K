@@ -16,7 +16,7 @@ Compilation of the source code for Android as well as the Android app developmen
 Website: http://www.jh-inst.cas.cz/~liska/MobileChemistry.htm
 
 List of used third-party software:
-ACPDFVIEW, ANDROID SHELL, BLAS, CP2K, FFTW, GRAPHVIEW, LAPACK, LIBINT, LIBXC, OPENBABEL, OPSIN, X11-BASIC.  
+ACPDFVIEW, ANDROID SHELL, BLAS, CP2K, FFTW, GRAPHVIEW, LAPACK, LIBINT, LIBXC, MOLCANVAS, OPENBABEL, OPSIN, X11-BASIC.  
 
 More info on licenses & references - please refer to the licensing information inside of the app.
 
@@ -77,6 +77,11 @@ $ rm libcp2k.zip
  Ref.: Lehtola, S., Steigemann C., Oliveira, M.J.T., Marques, M.A.L.: "Recent developments in libxc—A comprehensive library of functionals for density functional theory." SoftwareX 7 (2018): 1.
  Source code: http://www.tddft.org/programs/libxc/
  License: MPL
+ 
+  * MOLCANVAS
+ Authors: Alan Liska, Veronika Ruzickova (J. Heyrovsky Institute of Physical Chemistry of the CAS)
+ Source code: https://github.com/alanliska/MolCanvas
+ License: MIT
 
  * OPENBABEL
  Ref.: N M O'Boyle, M Banck, C A James, C Morley, T Vandermeersch, and G R Hutchison. "Open Babel: An open chemical toolbox." J. Cheminf. (2011), 3, 33. DOI:10.1186/1758-2946-3-33

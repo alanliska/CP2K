@@ -38,12 +38,11 @@
         <activity android:name="cz.jh.cp2k.PrivacyPolicy" />
         <activity android:name="cz.jh.cp2k.ShellTools" />
         <activity android:name="cz.jh.cp2k.ChangeSize" />
-        <activity android:name="cz.jh.cp2k.Canvas3d_main" />
-        <activity android:name="cz.jh.cp2k.Canvas3d_CanvasView"
-            tools:ignore="Instantiatable" />
-        <activity android:name="cz.jh.cp2k.Canvas3d_ColorTest" />
-        <activity android:name="cz.jh.cp2k.Canvas3d_PerTable" />
-        <activity android:name="cz.jh.cp2k.Canvas3d_Preferences" />
+        <activity android:name="cz.jh.cp2k.MolCanvas_main" />
+        <activity android:name="cz.jh.cp2k.MolCanvas_colorPicker" />
+        <activity android:name="cz.jh.cp2k.MolCanvas_periodicTable" />
+        <activity android:name="cz.jh.cp2k.MolCanvas_settings" />
+        <activity android:name="cz.jh.cp2k.MolCanvas_preferences" />
     </application>
 
 </manifest>
