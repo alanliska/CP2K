@@ -699,7 +699,7 @@ public class MolCanvas_main extends AppCompatActivity {
                     MolCanvas_canvasView.zmat.sort(Comparator.comparing(a -> a.getTouchTime()));
                     Collections.reverse(MolCanvas_canvasView.zmat);
                     for (MolCanvas_object object : MolCanvas_canvasView.zmat) {
-                        if (object.getObjectType() == 1) {
+                        if (object.getObjectType() == 1 && object.getAtomBorderColor1() == Color.RED) {
                             if (counter == 1) {
                                 x1 = object.getAtom1X_Ang();
                                 y1 = object.getAtom1Y_Ang();
@@ -761,7 +761,7 @@ public class MolCanvas_main extends AppCompatActivity {
                     MolCanvas_canvasView.zmat.sort(Comparator.comparing(a -> a.getTouchTime()));
                     Collections.reverse(MolCanvas_canvasView.zmat);
                     for (MolCanvas_object object : MolCanvas_canvasView.zmat) {
-                        if (object.getObjectType() == 1) {
+                        if (object.getObjectType() == 1 && object.getAtomBorderColor1() == Color.RED) {
                             if (counter == 1) {
                                 x1 = object.getAtom1X_Ang();
                                 y1 = object.getAtom1Y_Ang();
@@ -769,7 +769,7 @@ public class MolCanvas_main extends AppCompatActivity {
                             } else if (counter == 2) {
                                 x2 = object.getAtom1X_Ang();
                                 y2 = object.getAtom1Y_Ang();
-                                y2 = object.getAtom1Z_Ang();
+                                z2 = object.getAtom1Z_Ang();
                             } else if (counter == 3) {
                                 x3 = object.getAtom1X_Ang();
                                 y3 = object.getAtom1Y_Ang();
@@ -830,7 +830,7 @@ public class MolCanvas_main extends AppCompatActivity {
                     MolCanvas_canvasView.zmat.sort(Comparator.comparing(a -> a.getTouchTime()));
                     Collections.reverse(MolCanvas_canvasView.zmat);
                     for (MolCanvas_object object : MolCanvas_canvasView.zmat) {
-                        if (object.getObjectType() == 1) {
+                        if (object.getObjectType() == 1 && object.getAtomBorderColor1() == Color.RED) {
                             if (counter == 1) {
                                 x1 = object.getAtom1X_Ang();
                                 y1 = object.getAtom1Y_Ang();

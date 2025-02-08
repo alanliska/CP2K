@@ -16,8 +16,8 @@ android {
         applicationId "cz.jh.cp2k"
         minSdk 24
         targetSdk 35
-        versionCode 12
-        versionName '4.1'
+        versionCode 13
+        versionName '4.1.1'
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
@@ -28,7 +28,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-        flavorDimensions "abi"
+//        flavorDimensions "abi"
 //    productFlavors {
 //        /* removed in NDK r18
 //        arm {
